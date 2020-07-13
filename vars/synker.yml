@@ -23,13 +23,7 @@ images_apps_k8s:
   - kube-proxy:v1.17.4
   - kube-scheduler:v1.17.4
 
-# - k8s.gcr.io/coredns:1.6.5
-# - k8s.gcr.io/etcd:3.4.3-0
-# - k8s.gcr.io/kube-apiserver:v1.17.4
-# - k8s.gcr.io/kube-controller-manager:v1.17.4
-# - k8s.gcr.io/kube-proxy:v1.17.4
-# - k8s.gcr.io/kube-scheduler:v1.17.4
-
+url_registry_docker: docker.io
 images_apps_docker:
   - docker.io/fluent/fluent-bit:1.4.2
   - docker.io/godaddy/kubernetes-external-secrets:3.1.0
