@@ -4,6 +4,7 @@
   vars_files:
     - 'vars/global.yml'
     - 'vars/images.yml'
+    - 'vars/synker.yml'
   vars:
     module: "images"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"

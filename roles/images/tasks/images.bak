@@ -9,7 +9,10 @@
     argv:
       - skopeo
       - copy
-      - 'docker://{{ item }}'
-      - 'docker://localhost:5000/'
+      - 'docker://{{ item.uri }}/{{ item.name }}:{{ item.tag }}'
+      - 'docker://localhost:5000/{{ item.path }}/image-{{ item.name }}-{{ item.tag }}'
+      - --additional-tag
+      - '{{ item.uri }}/{{ item.name }}:{{ item.tag }}'
+    creates: "{{ dir_deploy }}/images/image-{{ item.name }}-{{ item.tag }}.tar"
   with_items:
     - "{{ images_apps_k8s }}"

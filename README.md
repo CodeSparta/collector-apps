@@ -1,4 +1,4 @@
-# Koffer Collector | RedHat OpenShift Operator Lifecycle Hub
+# Koffer Collector | RedHat OpenShift Auxiliary Apps
 ## Provides
 This automation provides a unified and standardized tarball of artifacts for
 airgap infrastructure deployment tasks.
@@ -23,7 +23,7 @@ Features:
      --volume /tmp/platform:/root/deploy:z \
      --volume /tmp/platform/secrets/docker/quay.json:/root/.docker/config.json:ro \
   docker.io/containercraft/koffer:nightlies \
-  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/operatorhub.git master
+  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/collector-apps.git master
 ```
 ### 2. Move Koffer Bundle to restricted environment target host `/tmp` directory
 ### 3. Extract to docker registry path
