@@ -12,4 +12,4 @@
       - 'docker://{{ item.url }}/{{ item.name }}'
       - 'docker://localhost:5000/{{ item.name }}'
   loop:
-    - "{ url: '{{ url_registry_k8s }}', name: '{{ images_apps_k8s }}' }"
+    - { url: '{{ url_registry_k8s }}', name: '{{ images_apps_k8s }}' }
