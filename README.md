@@ -1,19 +1,7 @@
 # Koffer Collector | RedHat OpenShift Auxiliary Apps
 ## Provides
-This automation provides a unified and standardized tarball of artifacts for
-airgap infrastructure deployment tasks.
-
-## About
-Koffer Collector Operator Hub uses the Koffer Engine runtime container to enable
-streamlined low side capture of all required artifacts for deploying OpenShift 
-Operator Hub. Primarily built to enable airgaped environments in a standard 
-"registry < to > mirror" workflow model conventional to more typical connected 
-local mirror techniques.
-
-Features:
-  - High side sha256 verification of artifacts bundle before standup
-  - High side artifacts served via generic docker registry container
-  - Low side injestion direct to "pre-hydrated" registry stateful path
+This repo runs an artifact collector with the Koffer Engine and produces a tarball
+of artifacts for airgap infrastructure deployment.
 
 ## Instructions:
 ### 1. Run Koffer Engine
@@ -28,7 +16,7 @@ Features:
 ### 2. Move Koffer Bundle to restricted environment target host `/tmp` directory
 ### 3. Extract to docker registry path
 ```
- tar xv -f /tmp/koffer-bundle.redhat-operators.tar -C /root/deploy/mirror
+ tar xv -f /tmp/koffer-bundle.platform-apps.tar -C /root/deploy/mirror
 ```
 ### 4. Start or Restart your docker registry container
 # [Developer Docs & Utils](./dev)
