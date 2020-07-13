@@ -7,10 +7,9 @@ images_apps_unassigned:
   - busybox:latest
   - redis:5.0.3
 
+url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
-  - registry.access.redhat.com/ubi8/ubi:8.1
-
-    #images_apps_gitlab:
+  - ubi8/ubi:8.1
 
 url_registry_k8s: k8s.gcr.io
 images_apps_k8s:
@@ -23,6 +22,11 @@ images_apps_k8s:
 
 url_registry_docker: docker.io
 images_apps_docker:
+  - argoproj/argocd:v1.5.0
+  - atlassian/confluence-server:7.3.4
+  - atlassian/jira-software:8.8.0
+  - busybox:1.31
+  - busybox:latest
   - gitlab/gitlab-runner:alpine-v13.0.0
   - gitlab/gitlab-runner:alpine-v12.9.0
   - fluent/fluent-bit:1.4.2
