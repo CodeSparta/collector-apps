@@ -10,9 +10,7 @@ images_apps_unassigned:
 images_apps_redhat:
   - registry.access.redhat.com/ubi8/ubi:8.1
 
-images_apps_gitlab:
-  - gitlab/gitlab-runner:alpine-v13.0.0
-  - gitlab/gitlab-runner:alpine-v12.9.0
+    #images_apps_gitlab:
 
 url_registry_k8s: k8s.gcr.io
 images_apps_k8s:
@@ -25,6 +23,8 @@ images_apps_k8s:
 
 url_registry_docker: docker.io
 images_apps_docker:
+  - gitlab/gitlab-runner:alpine-v13.0.0
+  - gitlab/gitlab-runner:alpine-v12.9.0
   - fluent/fluent-bit:1.4.2
   - godaddy/kubernetes-external-secrets:3.1.0
   - grafana/grafana:6.4.3
