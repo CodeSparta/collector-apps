@@ -12,4 +12,4 @@
       - 'docker://{{ url_registry_k8s }}/{{ item.name }}'
       - 'docker://localhost:5000/{{ item.name }}'
   with_items:
-    - '{{ images_apps_k8s }}'
+    - {{ images_apps_k8s }}
