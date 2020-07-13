@@ -11,5 +11,5 @@
       - copy
       - 'docker://{{ item.url }}/{{ item.name }}'
       - 'docker://localhost:5000/{{ item.name }}'
-  loop:
+  with_items:
     - "{ url: '{{ url_registry_k8s }}', name: '{{ images_apps_k8s }}' }"
