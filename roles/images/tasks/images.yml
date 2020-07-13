@@ -23,3 +23,14 @@
       - 'docker://localhost:5000/{{ item }}'
   with_items:
     - '{{ images_apps_docker }}'
+  ignore_errors: true
+
+- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_quay }} | Pull App Images' 
+  command:
+    argv:
+      - skopeo
+      - copy
+      - 'docker://{{ url_registry_quay }}/{{ item }}'
+      - 'docker://localhost:5000/{{ item }}'
+  with_items:
+    - '{{ images_apps_quay }}'
