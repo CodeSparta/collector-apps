@@ -9,7 +9,7 @@
     argv:
       - skopeo
       - copy
-      - 'docker://{{ item }}'
-      - 'docker://localhost:5000/'
+      - 'docker://{{ url_registry_k8s }}/{{ item }}'
+      - 'docker://localhost:5000/{{ item }}'
   with_items:
     - "{{ images_apps_k8s }}"
