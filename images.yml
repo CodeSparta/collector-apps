@@ -1,5 +1,6 @@
 #!/usr/local/bin/ansible-playbook --inventory=inventory
 - name: '{{ name_vendor }} | Koffer | images.yml' 
+  hosts: local
   vars_files:
     - 'vars/global.yml'
     - 'vars/images.yml'
@@ -7,15 +8,11 @@
   vars:
     module: "images"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
-# roles:
-#   - images
-# name: '{{ ansible_name_module }} | command:skopeo.copy | Pull CloudCTL Pod Images' 
-# file: 
-#   path: "{{ dir_deploy }}/images"
-#   state: directory
-
   tasks:
-  hosts: local
+    # name: '{{ ansible_name_module }} | command:skopeo.copy | Pull CloudCTL Pod Images' 
+    # file: 
+    #   path: "{{ dir_deploy }}/images"
+    #   state: directory
     - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_redhat }} | Pull App Images' 
       command:
         argv:
