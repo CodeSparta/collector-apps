@@ -8,11 +8,15 @@
     module: "images"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
   tasks:
-    # name: '{{ ansible_name_module }} | command:skopeo.copy | Pull CloudCTL Pod Images' 
-    # file: 
-    #   path: "{{ dir_deploy }}/images"
-    #   state: directory
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_redhat }} | Pull App Images' 
+    - name: '{{ ansible_name_module }} | file:absent | Purge Pre-Existing Artifacts' 
+      file: 
+        path: "{{ dir_deploy }}/deploy/mirror/docker"
+        state: absent
+    - name: '{{ ansible_name_module }} | file:directory | Place Artifacts Directory' 
+      file: 
+        path: "{{ dir_deploy }}/images"
+        state: directory
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_redhat }} ' 
       command:
         argv:
           - skopeo
@@ -23,7 +27,7 @@
       with_items:
         - '{{ images_apps_redhat }}'
 
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_docker }} | Pull App Images' 
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_docker }}' 
       command:
         argv:
           - skopeo
@@ -34,7 +38,7 @@
       with_items:
         - '{{ images_apps_docker }}'
 
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_dsop }} | Pull App Images' 
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_dsop }}' 
       command:
         argv:
           - skopeo
@@ -45,7 +49,7 @@
       with_items:
         - '{{ images_apps_dsop }}'
 
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_k8s }} | Pull App Images' 
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_k8s }}' 
       command:
         argv:
           - skopeo
@@ -56,7 +60,7 @@
       with_items:
         - '{{ images_apps_k8s }}'
 
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_quay }} | Pull App Images' 
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_quay }}' 
       command:
         argv:
           - skopeo
