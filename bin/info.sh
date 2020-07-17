@@ -14,3 +14,4 @@ cat <<EOF
 
 EOF
 }
+info
