@@ -2,6 +2,8 @@
 url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
   - ubi8/ubi:8.1
+  - rhscl/mysql-57-rhel7:latest
+  - rhel8/postgresql-96:latest
 
 url_registry_k8s: k8s.gcr.io
 images_apps_k8s:
