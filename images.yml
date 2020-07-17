@@ -1,5 +1,6 @@
 #!/usr/local/bin/ansible-playbook --inventory=inventory
 - name: '{{ name_vendor }} | Koffer | images.yml' 
+  tasks:
   hosts: local
   vars_files:
     - 'vars/global.yml'
@@ -15,7 +16,6 @@
 #   path: "{{ dir_deploy }}/images"
 #   state: directory
 
-  tasks:
     - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_redhat }} | Pull App Images' 
       command:
         argv:
