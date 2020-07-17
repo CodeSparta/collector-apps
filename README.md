@@ -20,5 +20,3 @@ of artifacts for airgap infrastructure deployment.
 ```
 ### 4. Start or Restart your docker registry container
 # [Developer Docs & Utils](./dev)
-# Demo
-![bundle](./web/bundle.svg)
