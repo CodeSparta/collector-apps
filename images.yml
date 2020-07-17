@@ -10,63 +10,63 @@
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
 # roles:
 #   - images
-  tasks:
 # name: '{{ ansible_name_module }} | command:skopeo.copy | Pull CloudCTL Pod Images' 
 # file: 
 #   path: "{{ dir_deploy }}/images"
 #   state: directory
 
-- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_redhat }} | Pull App Images' 
-  command:
-    argv:
-      - skopeo
-      - copy
-      - --format=v2s2
-      - 'docker://{{ url_registry_redhat }}/{{ item }}'
-      - 'docker://localhost:5000/{{ item }}'
-  with_items:
-    - '{{ images_apps_redhat }}'
+  tasks:
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_redhat }} | Pull App Images' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_redhat }}/{{ item }}'
+          - 'docker://localhost:5000/{{ item }}'
+      with_items:
+        - '{{ images_apps_redhat }}'
 
-- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_docker }} | Pull App Images' 
-  command:
-    argv:
-      - skopeo
-      - copy
-      - --format=v2s2
-      - 'docker://{{ url_registry_docker }}/{{ item }}'
-      - 'docker://localhost:5000/{{ item }}'
-  with_items:
-    - '{{ images_apps_docker }}'
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_docker }} | Pull App Images' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_docker }}/{{ item }}'
+          - 'docker://localhost:5000/{{ item }}'
+      with_items:
+        - '{{ images_apps_docker }}'
 
-- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_dsop }} | Pull App Images' 
-  command:
-    argv:
-      - skopeo
-      - copy
-      - --format=v2s2
-      - 'docker://{{ url_registry_dsop }}/{{ item }}'
-      - 'docker://localhost:5000/{{ item }}'
-  with_items:
-    - '{{ images_apps_dsop }}'
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_dsop }} | Pull App Images' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_dsop }}/{{ item }}'
+          - 'docker://localhost:5000/{{ item }}'
+      with_items:
+        - '{{ images_apps_dsop }}'
 
-- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_k8s }} | Pull App Images' 
-  command:
-    argv:
-      - skopeo
-      - copy
-      - --format=v2s2
-      - 'docker://{{ url_registry_k8s }}/{{ item }}'
-      - 'docker://localhost:5000/{{ item }}'
-  with_items:
-    - '{{ images_apps_k8s }}'
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_k8s }} | Pull App Images' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_k8s }}/{{ item }}'
+          - 'docker://localhost:5000/{{ item }}'
+      with_items:
+        - '{{ images_apps_k8s }}'
 
-- name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_quay }} | Pull App Images' 
-  command:
-    argv:
-      - skopeo
-      - copy
-      - --format=v2s2
-      - 'docker://{{ url_registry_quay }}/{{ item }}'
-      - 'docker://localhost:5000/{{ item }}'
-  with_items:
-    - '{{ images_apps_quay }}'
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | {{ url_registry_quay }} | Pull App Images' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_quay }}/{{ item }}'
+          - 'docker://localhost:5000/{{ item }}'
+      with_items:
+        - '{{ images_apps_quay }}'
