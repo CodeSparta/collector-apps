@@ -4,8 +4,6 @@
     path: '{{ item }}'
     state: absent
   loop:
-    - '{{ local_home }}/deploy/mirror/docker/registry/v2/blobs'
-    - '{{ local_home }}/deploy/mirror/docker/registry/v2/repositories'
     - '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar'
     - '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar.sha256'
 
