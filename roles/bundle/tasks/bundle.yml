@@ -4,18 +4,20 @@
     path: '{{ item }}'
     state: absent
   loop:
-    - '{{ local_home }}/deploy/bundle/koffer-bundle.redhat-operators.tar'
-    - '{{ local_home }}/deploy/bundle/koffer-bundle.redhat-operators.tar.sha256'
+    - '{{ local_home }}/deploy/mirror/docker/registry/v2/blobs'
+    - '{{ local_home }}/deploy/mirror/docker/registry/v2/repositories'
+    - '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar'
+    - '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar.sha256'
 
 - name: '{{ ansible_name_module }} | command:tar | build tarball bundle of all artifacts'
   command:
-    "tar -cv -f {{ local_home }}/deploy/bundle/koffer-bundle.redhat-operators.tar -C {{ local_home }}/deploy/mirror docker"
+    "tar -cv -f {{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar -C {{ local_home }}/deploy/mirror docker"
   args:
-    creates: '{{ local_home }}/deploy/bundle/koffer-bundle.redhat-operators.tar'
+    creates: '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar'
     warn: false
 
-- name: '{{ ansible_name_module }} | stat:sha256 | SHA koffer-bundle.redhat-operators.tar'
-  command: 'sha256sum koffer-bundle.redhat-operators.tar'
+- name: '{{ ansible_name_module }} | stat:sha256 | SHA koffer-bundle.collector-apps.tar'
+  command: 'sha256sum koffer-bundle.collector-apps.tar'
   args:
     warn: false
     chdir: '{{ local_home }}/deploy/bundle'
@@ -24,4 +26,4 @@
 - name: '{{ ansible_name_module }} | copy:content.sha256 | Create Sha256 Verification file'
   copy:
     content: '{{ bundle_sha.stdout }}'
-    dest: '{{ local_home }}/deploy/bundle/koffer-bundle.redhat-operators.tar.sha256'
+    dest: '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar.sha256'
