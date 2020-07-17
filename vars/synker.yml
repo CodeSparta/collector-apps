@@ -17,6 +17,7 @@ images_apps_k8s:
 
 url_registry_docker: docker.io
 images_apps_docker:
+  - gogs/gogs:latest
   - argoproj/argocd:v1.5.0
   - atlassian/confluence-server:7.3.4
   - atlassian/jira-software:8.8.0
