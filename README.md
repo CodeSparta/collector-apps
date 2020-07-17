@@ -17,5 +17,4 @@ of artifacts for airgap infrastructure deployment.
 ```
  tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root/deploy/mirror
 ```
-### 4. Start or Restart your docker registry container
 # [Developer Docs & Utils](./dev)
