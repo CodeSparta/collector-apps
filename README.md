@@ -1,5 +1,4 @@
 # Koffer Collector | RedHat OpenShift Auxiliary Apps
-## Provides
 This repo runs an artifact collector with the Koffer Engine and produces a tarball
 of artifacts for airgap infrastructure deployment.
 
