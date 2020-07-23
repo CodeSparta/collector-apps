@@ -8,6 +8,7 @@
     module: "images"
     ansible_name_module: "{{ ansible_name }} | {{ module }}"
   tasks:
+
     - name: '{{ ansible_name_module }} | file:absent | Purge Pre-Existing Artifacts' 
       file: 
         path: "{{ dir_deploy }}/deploy/mirror/docker"
@@ -16,6 +17,18 @@
       file: 
         path: "{{ dir_deploy }}/images"
         state: directory
+
+    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_redhat_io }} ' 
+      command:
+        argv:
+          - skopeo
+          - copy
+          - --format=v2s2
+          - 'docker://{{ url_registry_redhat_io }}/{{ item.name }}:{{ item.pull-tag }}'
+          - 'docker://localhost:5000/{{ item.name }}:{{ item.push-tag }}'
+      with_items:
+        - '{{ images_apps_redhat_io }}'
+
     - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_redhat }} ' 
       command:
         argv:
