@@ -1,9 +1,9 @@
 ---
 url_registry_redhat_io: registry.redhat.io
 images_apps_redhat_io:
-  - name: openshift4/ose-oauth-proxy:4.2
-  - name: openshift4/ose-oauth-proxy:latest
-  - name: openshift-service-mesh/istio-rhel8-operator:latest
+  - openshift4/ose-oauth-proxy:4.2
+  - openshift4/ose-oauth-proxy:latest
+  - openshift-service-mesh/istio-rhel8-operator:latest
 
 url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
