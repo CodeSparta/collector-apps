@@ -2,14 +2,8 @@
 url_registry_redhat_io: registry.redhat.io
 images_apps_redhat_io:
   - name: openshift4/ose-oauth-proxy:4.2
-    pull-tag: 4.2
-    push-tag: 4.2
   - name: openshift4/ose-oauth-proxy:latest
-    pull-tag: latest
-    push-tag: latest
-  - name: openshift-service-mesh/istio-rhel8-operator
-    pull-tag: "latest"
-    push-tag: "1.0.0"
+  - name: openshift-service-mesh/istio-rhel8-operator:latest
 
 url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
