@@ -51,16 +51,16 @@
       with_items:
         - '{{ images_apps_docker }}'
 
-    - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_dsop }}' 
-      command:
-        argv:
-          - skopeo
-          - copy
-          - --format=v2s2
-          - 'docker://{{ url_registry_dsop }}/{{ item }}'
-          - 'docker://localhost:5000/{{ item }}'
-      with_items:
-        - '{{ images_apps_dsop }}'
+#   - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_dsop }}' 
+#     command:
+#       argv:
+#         - skopeo
+#         - copy
+#         - --format=v2s2
+#         - 'docker://{{ url_registry_dsop }}/{{ item }}'
+#         - 'docker://localhost:5000/{{ item }}'
+#     with_items:
+#       - '{{ images_apps_dsop }}'
 
     - name: '{{ ansible_name_module }} | command:skopeo.copy | Pull App Images | {{ url_registry_k8s }}' 
       command:

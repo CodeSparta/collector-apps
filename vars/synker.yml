@@ -33,6 +33,6 @@ url_registry_quay: quay.io
 images_apps_quay:
   - containercraft/one:latest
 
-url_registry_dsop: registry.dsop.io
-images_apps_dsop:
-  - platform-one/apps/keycloak/keycloak:10.0.1
+#url_registry_dsop: registry.dsop.io
+#images_apps_dsop:
+#  - platform-one/apps/keycloak/keycloak:10.0.1
