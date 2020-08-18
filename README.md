@@ -3,14 +3,7 @@ This repo runs an artifact collector with the Koffer Engine and produces a tarba
 of artifacts for airgap infrastructure deployment.
 
 ## Instructions:
-### 0. [Optional] Prepare pull secret
-```
- mkdir ~/.docker /tmp/bundle
- vi ~/.docker/config.json
-```
-### 1. Run Koffer Engine
->  include `--volume ${HOME}/.docker:/root/.docker:z` if required
-    
+### 1. Run Koffer Engine  
 ```
  sudo podman run -it --rm \
      --volume /tmp/bundle:/root/deploy/bundle:z \
@@ -27,11 +20,6 @@ of artifacts for airgap infrastructure deployment.
 ```
 
 ## Develop:
-### 0. Prepare Pull Secret
-```
- mkdir ~/.docker /tmp/bundle
- vi ~/.docker/config.json
-```
 ### 1. Clone Repo
 ```
  git clone https://github.com/codesparta/collector-apps.git && cd collector-apps
@@ -40,7 +28,6 @@ of artifacts for airgap infrastructure deployment.
 ```
  sudo podman run -it --rm \
      --volume /tmp/bundle:/root/deploy/bundle:z \
-     --volume ${HOME}/.docker:/root/.docker:z \
      --volume $(pwd):/root/koffer:z \
   docker.io/codesparta/koffer bundle \
   --service github.com --user codesparta --repo collector-apps --branch master
