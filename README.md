@@ -30,7 +30,7 @@ of artifacts for airgap infrastructure deployment.
      --entrypoint bash \
      --volume /tmp/bundle:/root/deploy/bundle:z \
      --volume $(pwd):/root/koffer:z \
-  docker.io/codesparta/koffer bundle
+  docker.io/codesparta/koffer
 ```
 ### 3. Start Koffer Internal Registry Service
 ```
