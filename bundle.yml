@@ -18,7 +18,7 @@
     
     - name: '{{ ansible_name_module }} | command:tar | build tarball bundle of all artifacts'
       command:
-        "tar -cv -f {{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar -C {{ local_home }}/deploy"
+        "tar -cv -f {{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar -C {{ local_home }} deploy"
       args:
         creates: '{{ local_home }}/deploy/bundle/koffer-bundle.collector-apps.tar'
         warn: false
