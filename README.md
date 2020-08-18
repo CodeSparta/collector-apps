@@ -10,11 +10,7 @@ of artifacts for airgap infrastructure deployment.
   docker.io/codesparta/koffer bundle \
   --service github.com --user codesparta --repo collector-apps --branch master
 ```
-### 2. Extract to docker registry path
-```
- tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
-```
-### 3. Extract to docker registry path
+### 2. Extract to CloudCtl Artifact Directory
 ```
  tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
 ```
