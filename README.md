@@ -21,6 +21,10 @@ of artifacts for airgap infrastructure deployment.
 ```
  tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
 ```
+### 3. Extract to docker registry path
+```
+ tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
+```
 
 ## Develop:
 ### 0. Prepare Pull Secret
@@ -48,10 +52,4 @@ of artifacts for airgap infrastructure deployment.
 ### 4. Run Playbook
 ```
  ./site.yml
- ```
- 
-### 5. Extract to docker registry path
 ```
- tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
-```
-# [Developer Docs & Utils](./dev)
