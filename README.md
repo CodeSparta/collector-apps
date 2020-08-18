@@ -19,7 +19,7 @@ of artifacts for airgap infrastructure deployment.
 ```
  sudo tar xv -f ~/bundle/koffer-bundle.collector-apps.tar -C /root
 ```
-
+------------------------------------------------------------------------------------
 ## Develop:
 ### 1. Clone Repo
 ```
