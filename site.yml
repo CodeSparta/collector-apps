@@ -3,6 +3,15 @@
   hosts: local
   vars_files:
     - vars/global.yml
+  tasks:
+    - name: Clean/Purge Artifact Directory
+      file:
+        state: absent
+        path: /root/deploy
+      file:
+        state: directory
+        path: /root/deploy
+        mode: 0775
 
 # name: 'Koffer | Artifact Rake Utility | import_playbook | auth.yml'
 # import_playbook: auth.yml
