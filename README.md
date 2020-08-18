@@ -15,7 +15,7 @@ of artifacts for airgap infrastructure deployment.
  sudo chown -R $USER /tmp/bundle
  rsync --progress -avzh /tmp/bundle -e "ssh -i ~/.ssh/${keyname}" ec2-user@${rhel_bastion_public_ip}:~
 ```
-### 3. Extract to CloudCtl Artifact Directory
+### 3. Extract to CloudCtl Artifact Directory on the registry instance 
 ```
  sudo tar xv -f ~/bundle/koffer-bundle.collector-apps.tar -C /root
 ```
