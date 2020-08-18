@@ -27,10 +27,10 @@ of artifacts for airgap infrastructure deployment.
 ### 2. Exec into Koffer Engine
 ```
  sudo podman run -it --rm \
+     --entrypoint bash \
      --volume /tmp/bundle:/root/deploy/bundle:z \
      --volume $(pwd):/root/koffer:z \
-  docker.io/codesparta/koffer bundle \
-  --service github.com --user codesparta --repo collector-apps --branch master
+  docker.io/codesparta/koffer bundle
 ```
 ### 3. Start Koffer Internal Registry Service
 ```
