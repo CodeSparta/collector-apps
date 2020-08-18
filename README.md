@@ -6,9 +6,9 @@ of artifacts for airgap infrastructure deployment.
 ### 1. Run Koffer Engine  
 ```
  sudo podman run -it --rm \
-     --volume /tmp/bundle:/root/deploy/bundle:z \
+    --volume /tmp/bundle:/root/deploy/bundle:z \
   docker.io/codesparta/koffer bundle \
-  --service github.com --user codesparta --repo collector-apps --branch master
+    --service github.com --user codesparta --repo collector-apps --branch master
 ```
 ### 2. Push bundle directory
 ```
