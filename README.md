@@ -12,7 +12,7 @@ of artifacts for airgap infrastructure deployment.
 ```
 ### 2. Extract to CloudCtl Artifact Directory
 ```
- tar xv -f ~/${HOME}/koffer-bundle.collector-apps.tar -C /root
+ sudo tar xv -f ~/bundle/koffer-bundle.collector-apps.tar -C /root
 ```
 
 ## Develop:
