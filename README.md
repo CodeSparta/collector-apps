@@ -3,18 +3,55 @@ This repo runs an artifact collector with the Koffer Engine and produces a tarba
 of artifacts for airgap infrastructure deployment.
 
 ## Instructions:
+### 0. [Optional] Prepare pull secret
+```
+ mkdir ~/.docker /tmp/bundle
+ vi ~/.docker/config.json
+```
 ### 1. Run Koffer Engine
+>  include `--volume ${HOME}/.docker:/root/.docker:z` if required
+    
 ```
  sudo podman run -it --rm \
-     --entrypoint=/usr/bin/entrypoint \
-     --volume /tmp/platform:/root/deploy:z \
-     --volume /tmp/platform/secrets/docker/quay.json:/root/.docker/config.json:ro \
-  docker.io/containercraft/koffer:latest \
-  https://repo1.dsop.io/dsop/redhat/platformone/ocp4x/ansible/collector-apps.git master
+     --volume /tmp/bundle:/root/deploy/bundle:z \
+  docker.io/codesparta/koffer bundle \
+  --service github.com --user codesparta --repo collector-apps --branch master
 ```
-### 2. Move Koffer Bundle to restricted environment target host `/tmp` directory
-### 3. Extract to docker registry path
+### 2. Extract to docker registry path
 ```
- tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root/deploy/mirror
+ tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
+```
+
+## Develop:
+### 0. Prepare Pull Secret
+```
+ mkdir ~/.docker /tmp/bundle
+ vi ~/.docker/config.json
+```
+### 1. Clone Repo
+```
+ git clone https://github.com/codesparta/collector-apps.git && cd collector-apps
+```
+### 2. Exec into Koffer Engine
+```
+ sudo podman run -it --rm \
+     --volume /tmp/bundle:/root/deploy/bundle:z \
+     --volume ${HOME}/.docker:/root/.docker:z \
+     --volume $(pwd):/root/koffer:z \
+  docker.io/codesparta/koffer bundle \
+  --service github.com --user codesparta --repo collector-apps --branch master
+```
+### 3. Start Koffer Internal Registry Service
+```
+ run_registry.sh
+```
+### 4. Run Playbook
+```
+ ./site.yml
+ ```
+ 
+### 5. Extract to docker registry path
+```
+ tar xv -f /tmp/koffer-bundle.collector-apps.tar -C /root
 ```
 # [Developer Docs & Utils](./dev)
