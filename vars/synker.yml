@@ -4,6 +4,9 @@ images_apps_redhat_io:
   - openshift4/ose-oauth-proxy:4.2
   - openshift4/ose-oauth-proxy:latest
   - openshift-service-mesh/istio-rhel8-operator:latest
+  - rh-sso-7/sso74-openshift-rhel8:7.4
+  - rhel8/postgresql-10:1
+  - rh-sso-7-tech-preview/sso74-rhel8-operator:7.4
 
 url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
