@@ -10,10 +10,10 @@ of artifacts for airgap infrastructure deployment.
   docker.io/codesparta/koffer bundle \
   --service github.com --user codesparta --repo collector-apps --branch master
 ```
-### 2. Push bundle directories
+### 2. Push bundle directory
 ```
  sudo chown -R $USER /tmp/bundle
- sudo scp -r -i ~/.ssh/kevin.pem /tmp/bundle core@10.0.1.109:~
+ rsync --progress -avzh /tmp/bundle -e "ssh -i ~/.ssh/${keyname}" ec2-user@${rhel_bastion_public_ip}:~
 ```
 ### 3. Extract to CloudCtl Artifact Directory
 ```
