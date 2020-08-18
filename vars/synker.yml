@@ -7,6 +7,7 @@ images_apps_redhat_io:
   - rh-sso-7/sso74-openshift-rhel8:7.4
   - rhel8/postgresql-10:1
   - rh-sso-7-tech-preview/sso74-rhel8-operator:7.4
+  - rh-sso-7-tech-preview/sso74-init-container-rhel8:7.4
 
 url_registry_redhat: registry.access.redhat.com
 images_apps_redhat:
@@ -35,6 +36,7 @@ images_apps_docker:
 url_registry_quay: quay.io
 images_apps_quay:
   - containercraft/one:latest
+  - integreatly/backup-container:1.0.10
 
 #url_registry_dsop: registry.dsop.io
 #images_apps_dsop:
