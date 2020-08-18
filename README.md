@@ -15,7 +15,7 @@ of artifacts for airgap infrastructure deployment.
  sudo chown -R $USER /tmp/bundle
  sudo scp -r -i ~/.ssh/kevin.pem /tmp/bundle core@10.0.1.109:~
 ```
-### 2. Extract to CloudCtl Artifact Directory
+### 3. Extract to CloudCtl Artifact Directory
 ```
  sudo tar xv -f ~/bundle/koffer-bundle.collector-apps.tar -C /root
 ```
