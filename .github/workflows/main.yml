@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+  release:
+    types:
+      - created
+  create:
+  
+  
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: repo-sync
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: "https://github.com/CodeSparta/collector-apps.git"
+          source_branch: "*"
+          destination_branch: "*"
+          github_token: ${{ secrets.INSTALLER_SECRET }}
